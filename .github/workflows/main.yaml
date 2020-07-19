@@ -1,0 +1,26 @@
+name: commit-check
+# This workflow is triggered on pushes to the repository.
+on: [push, pull_request, issues]
+
+jobs:
+  fmt:
+    name: code-format
+    runs-on: ubuntu-latest
+    container:
+      image: hashicorp/terraform:latest
+    steps:
+      - uses: actions/checkout@master
+      - run: |
+          terraform fmt --recursive -check=true
+
+  docs:
+    name: pre-commit-hook
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: install dependencies
+        run: |
+          brew install pre-commit terraform-docs terraform tflint
+      - name: validate sources
+        run: |
+          pre-commit run --all-files
