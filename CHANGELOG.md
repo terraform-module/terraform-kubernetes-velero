@@ -3,40 +3,24 @@
 
 
 
-<a name="v0.4.0"></a>
-## [v0.4.0] - 2019-12-22
+<a name="v0.13.0"></a>
+## [v0.13.0] - 2020-07-19
 
-- update hooks
-- Update README.md
-- update hooks
-- licence update
-- Update LICENSE
-- added assumptions and features
+- changelog updated
 
 
-<a name="v0.3.0"></a>
-## [v0.3.0] - 2019-11-02
+<a name="v0.12.2"></a>
+## [v0.12.2] - 2020-07-19
 
-- added deafult blueprint values
-
-
-<a name="v0.2.0"></a>
-## [v0.2.0] - 2019-09-15
-
-- update changelog
-- update licence
+- velero is working on eks with web identity setup
 
 
-<a name="v0.1.0"></a>
-## v0.1.0 - 2019-09-15
+<a name="v0.12.1"></a>
+## v0.12.1 - 2020-07-19
 
-- setup project blueprint
-- setup project blueprint
-- setup project blueprint
 - Initial commit
 
 
-[Unreleased]: https://github.com/terraform-module/TODO/compare/v0.4.0...HEAD
-[v0.4.0]: https://github.com/terraform-module/TODO/compare/v0.3.0...v0.4.0
-[v0.3.0]: https://github.com/terraform-module/TODO/compare/v0.2.0...v0.3.0
-[v0.2.0]: https://github.com/terraform-module/TODO/compare/v0.1.0...v0.2.0
+[Unreleased]: https://github.com/terraform-module/TODO/compare/v0.13.0...HEAD
+[v0.13.0]: https://github.com/terraform-module/TODO/compare/v0.12.2...v0.13.0
+[v0.12.2]: https://github.com/terraform-module/TODO/compare/v0.12.1...v0.12.2
