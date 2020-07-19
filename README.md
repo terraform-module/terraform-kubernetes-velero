@@ -1,24 +1,44 @@
-# Module Blueprint
+# Velero installation on AWS EKS Kubernetes
 
-Terraform module blueprint
+![](https://github.com/terraform-module/terraform-kubernetes-velero/workflows/release/badge.svg)
+![](https://github.com/terraform-module/terraform-kubernetes-velero/workflows/commit-check/badge.svg)
+![](https://github.com/terraform-module/terraform-kubernetes-velero/workflows/labeler/badge.svg)
 
-![](https://github.com/terraform-module/terraform-module-blueprint/workflows/release/badge.svg)
-![](https://github.com/terraform-module/terraform-module-blueprint/workflows/commit-check/badge.svg)
-![](https://github.com/terraform-module/terraform-module-blueprint/workflows/labeler/badge.svg)
+[![](https://img.shields.io/github/license/terraform-module/terraform-kubernetes-velero)](https://github.com/terraform-module/terraform-kubernetes-velero)
+![](https://img.shields.io/github/v/tag/terraform-module/terraform-kubernetes-velero)
+![](https://img.shields.io/issues/github/terraform-module/terraform-kubernetes-velero)
+![](https://img.shields.io/github/issues/terraform-module/terraform-kubernetes-velero)
+![](https://img.shields.io/github/issues-closed/terraform-module/terraform-kubernetes-velero)
+[![](https://img.shields.io/github/languages/code-size/terraform-module/terraform-kubernetes-velero)](https://github.com/terraform-module/terraform-kubernetes-velero)
+[![](https://img.shields.io/github/repo-size/terraform-module/terraform-kubernetes-velero)](https://github.com/terraform-module/terraform-kubernetes-velero)
+![](https://img.shields.io/github/languages/top/terraform-module/terraform-kubernetes-velero?color=green&logo=terraform&logoColor=blue)
+![](https://img.shields.io/github/commit-activity/m/terraform-module/terraform-kubernetes-velero)
+![](https://img.shields.io/github/contributors/terraform-module/terraform-kubernetes-velero)
+![](https://img.shields.io/github/last-commit/terraform-module/terraform-kubernetes-velero)
+[![Maintenance](https://img.shields.io/badge/Maintenu%3F-oui-green.svg)](https://GitHub.com/terraform-module/terraform-kubernetes-velero/graphs/commit-activity)
+[![GitHub forks](https://img.shields.io/github/forks/terraform-module/terraform-kubernetes-velero.svg?style=social&label=Fork)](https://github.com/terraform-module/terraform-kubernetes-velero)
 
-[![](https://img.shields.io/github/license/terraform-module/terraform-module-blueprint)](https://github.com/terraform-module/terraform-module-blueprint)
-![](https://img.shields.io/github/v/tag/terraform-module/terraform-module-blueprint)
-![](https://img.shields.io/issues/github/terraform-module/terraform-module-blueprint)
-![](https://img.shields.io/github/issues/terraform-module/terraform-module-blueprint)
-![](https://img.shields.io/github/issues-closed/terraform-module/terraform-module-blueprint)
-[![](https://img.shields.io/github/languages/code-size/terraform-module/terraform-module-blueprint)](https://github.com/terraform-module/terraform-module-blueprint)
-[![](https://img.shields.io/github/repo-size/terraform-module/terraform-module-blueprint)](https://github.com/terraform-module/terraform-module-blueprint)
-![](https://img.shields.io/github/languages/top/terraform-module/terraform-module-blueprint?color=green&logo=terraform&logoColor=blue)
-![](https://img.shields.io/github/commit-activity/m/terraform-module/terraform-module-blueprint)
-![](https://img.shields.io/github/contributors/terraform-module/terraform-module-blueprint)
-![](https://img.shields.io/github/last-commit/terraform-module/terraform-module-blueprint)
-[![Maintenance](https://img.shields.io/badge/Maintenu%3F-oui-green.svg)](https://GitHub.com/terraform-module/terraform-module-blueprint/graphs/commit-activity)
-[![GitHub forks](https://img.shields.io/github/forks/terraform-module/terraform-module-blueprint.svg?style=social&label=Fork)](https://github.com/terraform-module/terraform-module-blueprint)
+## References
+
+- [Velero Providers](https://velero.io/docs/master/supported-providers/)
+- [Velero BackupStorage](https://velero.io/docs/master/api-types/backupstoragelocation/)
+- [Velero Basic Install](https://velero.io/docs/v1.4/basic-install/)
+- [Velero Daily Backup/Disaster Recovery](https://velero.io/docs/v1.4/disaster-case/)
+- [Velero Cluster Migration](https://velero.io/docs/v1.4/migration-case/)
+- [Velero AWS Plugin](https://github.com/vmware-tanzu/velero-plugin-for-aws)
+
+- [Chart installation](https://github.com/vmware-tanzu/helm-charts/blob/master/charts/velero/README.md)
+- [Velero Helm Chart](https://github.com/vmware-tanzu/velero)
+- [AWS Setup](https://github.com/vmware-tanzu/velero-plugin-for-aws#setup)
+- [AWS CSI Driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html)
+- [Cassandra Example](https://velero.io/blog/velero-v1-1-stateful-backup-vsphere/)
+
+## Installation
+
+```sh
+$ brew install velero
+$ helm repo add vmware-tanzu https://vmware-tanzu.github.io/helm-charts
+```
 
 ## Documentation
 
@@ -39,7 +59,45 @@ Here's the gist of using it directly from github.
 ## Module Variables
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-Error: no lines in file
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12 |
+| helm | >= 1.2 |
+| kubernetes | >= 1.11.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | n/a |
+| helm | >= 1.2 |
+| kubernetes | >= 1.11.0 |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| app\_deploy | whther or not to deploy app | `bool` | `true` | no |
+| bucket | Backup and Restore bucket. | `string` | n/a | yes |
+| cluster\_name | Cluster name. | `string` | n/a | yes |
+| description | Namespace description | `string` | `"velero-back-up-and-restore"` | no |
+| name | namespace name | `string` | `"velero"` | no |
+| namespace\_deploy | whther or not to deploy namespace | `bool` | `false` | no |
+| openid\_connect\_provider\_uri | OpenID Connect Provider for EKS to enable IRSA. | `string` | n/a | yes |
+| repository | VMware Tanzu repository for Helm repos. | `string` | `"https://vmware-tanzu.github.io/helm-charts"` | no |
+| tags | A mapping of tags to assign to the object. | `map` | `{}` | no |
+| values | List of values in raw yaml to pass to helm. Values will be merged. | `list(string)` | n/a | yes |
+| vars | A Release is an instance of a chart running in a Kubernetes cluster. | `map` | `{}` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| namespace | Namespace name |
+| namespace\_name | Namespace name |
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Commands
@@ -72,10 +130,14 @@ Submit a pull request
 
 # Authors
 
-Currently maintained by [Ivan Katliarchuk](https://github.com/ivankatliarchuk) and these [awesome contributors](https://github.com/terraform-module/terraform-module-blueprint/graphs/contributors).
+Currently maintained by [Ivan Katliarchuk](https://github.com/ivankatliarchuk) and these [awesome contributors](https://github.com/terraform-module/terraform-kubernetes-velero/graphs/contributors).
 
 [![ForTheBadge uses-git](http://ForTheBadge.com/images/badges/uses-git.svg)](https://GitHub.com/)
 
 ## Terraform Registry
 
-- [Module](https://registry.terraform.io/modules/terraform-module/todo/aws)
+- [Module](https://registry.terraform.io/modules/terraform-module/kubernetes-velero/aws)
+
+## TODO
+
+- [ ] Kiam support
