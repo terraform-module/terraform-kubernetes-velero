@@ -49,7 +49,7 @@ variable "values" {
   type        = list(string)
 }
 
-variable "vars" {
+variable "app" {
   description = "A Release is an instance of a chart running in a Kubernetes cluster."
   type        = map
   default     = {}

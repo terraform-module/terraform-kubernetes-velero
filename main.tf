@@ -19,12 +19,12 @@ resource helm_release this {
   namespace  = local.namespace
   repository = var.repository
 
-  force_update  = lookup(var.vars, "force_update", true)
-  wait          = lookup(var.vars, "wait", true)
-  recreate_pods = lookup(var.vars, "recreate_pods", true)
-  max_history   = lookup(var.vars, "max_history", 0)
-  lint          = lookup(var.vars, "lint", true)
-  version       = lookup(var.vars, "version", "2.12.0")
+  force_update  = lookup(var.app, "force_update", true)
+  wait          = lookup(var.app, "wait", true)
+  recreate_pods = lookup(var.app, "recreate_pods", true)
+  max_history   = lookup(var.app, "max_history", 1)
+  lint          = lookup(var.app, "lint", true)
+  version       = lookup(var.app, "version", "2.12.0")
 
   values = concat(var.values, list(<<EOF
 serviceAccount:

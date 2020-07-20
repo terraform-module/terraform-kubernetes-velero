@@ -133,6 +133,7 @@ Here's the gist of using it directly from github.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| app | A Release is an instance of a chart running in a Kubernetes cluster. | `map` | `{}` | no |
 | app\_deploy | whther or not to deploy app | `bool` | `true` | no |
 | bucket | Backup and Restore bucket. | `string` | n/a | yes |
 | cluster\_name | Cluster name. | `string` | n/a | yes |
@@ -143,7 +144,6 @@ Here's the gist of using it directly from github.
 | repository | VMware Tanzu repository for Helm repos. | `string` | `"https://vmware-tanzu.github.io/helm-charts"` | no |
 | tags | A mapping of tags to assign to the object. | `map` | `{}` | no |
 | values | List of values in raw yaml to pass to helm. Values will be merged. | `list(string)` | n/a | yes |
-| vars | A Release is an instance of a chart running in a Kubernetes cluster. | `map` | `{}` | no |
 
 ## Outputs
 
