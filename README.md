@@ -149,7 +149,6 @@ Here's the gist of using it directly from github.
 
 | Name | Description |
 |------|-------------|
-| namespace | Namespace name |
 | namespace\_name | Namespace name |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
