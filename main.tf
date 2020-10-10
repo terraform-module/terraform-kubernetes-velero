@@ -24,7 +24,7 @@ resource helm_release this {
   recreate_pods = lookup(var.app, "recreate_pods", true)
   max_history   = lookup(var.app, "max_history", 1)
   lint          = lookup(var.app, "lint", true)
-  version       = lookup(var.app, "version", "2.12.0")
+  version       = lookup(var.app, "version", "2.13.2")
 
   values = concat(var.values, list(<<EOF
 serviceAccount:
