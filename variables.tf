@@ -15,6 +15,12 @@ variable "app_deploy" {
   type        = bool
 }
 
+variable "iam_deploy" {
+  default     = true
+  description = "whther or not to deploy iam role"
+  type        = bool
+}
+
 variable "name" {
   default     = "velero"
   description = "namespace name"
