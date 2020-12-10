@@ -138,6 +138,7 @@ Here's the gist of using it directly from github.
 | bucket | Backup and Restore bucket. | `string` | n/a | yes |
 | cluster\_name | Cluster name. | `string` | n/a | yes |
 | description | Namespace description | `string` | `"velero-back-up-and-restore"` | no |
+| iam\_role\_name | Name of the Velero IAM role | `string` | `""` | no |
 | name | namespace name | `string` | `"velero"` | no |
 | namespace\_deploy | whther or not to deploy namespace | `bool` | `false` | no |
 | openid\_connect\_provider\_uri | OpenID Connect Provider for EKS to enable IRSA. | `string` | n/a | yes |
@@ -157,10 +158,10 @@ Here's the gist of using it directly from github.
 
 <!-- START makefile-doc -->
 ```
-$ make help
+$ make help 
 hooks                          Commit hooks setup
 validate                       Validate with pre-commit hooks
-changelog                      Update changelog
+changelog                      Update changelog 
 ```
 <!-- END makefile-doc -->
 
