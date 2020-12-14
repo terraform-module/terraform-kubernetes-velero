@@ -65,3 +65,9 @@ variable "bucket" {
   description = "Backup and Restore bucket."
   type        = string
 }
+
+variable "iam_role_name" {
+  description = "Name of the Velero IAM role"
+  type        = string
+  default     = ""
+}

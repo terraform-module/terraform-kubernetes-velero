@@ -63,7 +63,8 @@ data aws_iam_policy_document policy {
 
 resource aws_iam_role this {
   count              = var.iam_deploy ? 1 : 0
-  name               = format("%s-%s", var.cluster_name, var.name)
+  name               = var.iam_role_name == "" ? format("%s-%s", var.cluster_name, var.name) : var.iam_role_name
+
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
   tags = merge(var.tags,
     { Attached = var.name },
