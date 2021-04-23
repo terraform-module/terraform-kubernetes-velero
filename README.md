@@ -36,8 +36,8 @@
 ## Installation
 
 ```sh
-brew install velero
-helm repo add vmware-tanzu https://vmware-tanzu.github.io/helm-charts
+$ brew install velero
+$ helm repo add vmware-tanzu https://vmware-tanzu.github.io/helm-charts
 ```
 
 ## Documentation
