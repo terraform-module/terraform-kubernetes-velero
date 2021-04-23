@@ -36,8 +36,8 @@
 ## Installation
 
 ```sh
-$ brew install velero
-$ helm repo add vmware-tanzu https://vmware-tanzu.github.io/helm-charts
+brew install velero
+helm repo add vmware-tanzu https://vmware-tanzu.github.io/helm-charts
 ```
 
 ## Documentation
@@ -134,14 +134,14 @@ Here's the gist of using it directly from github.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | app | A Release is an instance of a chart running in a Kubernetes cluster. | `map` | `{}` | no |
-| app\_deploy | whther or not to deploy app | `bool` | `true` | no |
+| app\_deploy | Whether or not to deploy app | `bool` | `true` | no |
 | bucket | Backup and Restore bucket. | `string` | n/a | yes |
 | cluster\_name | Cluster name. | `string` | n/a | yes |
 | description | Namespace description | `string` | `"velero-back-up-and-restore"` | no |
-| iam\_deploy | whther or not to deploy iam role | `bool` | `true` | no |
+| iam\_deploy | Whether or not to deploy iam role | `bool` | `true` | no |
 | iam\_role\_name | Name of the Velero IAM role | `string` | `""` | no |
-| name | namespace name | `string` | `"velero"` | no |
-| namespace\_deploy | whther or not to deploy namespace | `bool` | `false` | no |
+| name | Namespace name | `string` | `"velero"` | no |
+| namespace\_deploy | Whether or not to deploy namespace | `bool` | `false` | no |
 | openid\_connect\_provider\_uri | OpenID Connect Provider for EKS to enable IRSA. | `string` | n/a | yes |
 | repository | VMware Tanzu repository for Helm repos. | `string` | `"https://vmware-tanzu.github.io/helm-charts"` | no |
 | tags | A mapping of tags to assign to the object. | `map` | `{}` | no |
@@ -159,19 +159,19 @@ Here's the gist of using it directly from github.
 
 <!-- START makefile-doc -->
 ```
-$ make help 
+$ make help
 hooks                          Commit hooks setup
 validate                       Validate with pre-commit hooks
-changelog                      Update changelog 
+changelog                      Update changelog
 ```
 <!-- END makefile-doc -->
 
 ### :memo: Guidelines
 
- - :memo: Use a succinct title and description.
- - :bug: Bugs & feature requests can be be opened
- - :signal_strength: Support questions are better asked on [Stack Overflow](https://stackoverflow.com/)
- - :blush: Be nice, civil and polite ([as always](http://contributor-covenant.org/version/1/4/)).
+- :memo: Use a succinct title and description.
+- :bug: Bugs & feature requests can be be opened
+- :signal_strength: Support questions are better asked on [Stack Overflow](https://stackoverflow.com/)
+- :blush: Be nice, civil and polite ([as always](http://contributor-covenant.org/version/1/4/)).
 
 ## License
 

@@ -5,13 +5,13 @@ variable "cluster_name" {
 
 variable "namespace_deploy" {
   default     = false
-  description = "whther or not to deploy namespace"
+  description = "Whether or not to deploy namespace"
   type        = bool
 }
 
 variable "app_deploy" {
   default     = true
-  description = "whther or not to deploy app"
+  description = "Whether or not to deploy app"
   type        = bool
 }
 
@@ -23,7 +23,7 @@ variable "iam_deploy" {
 
 variable "name" {
   default     = "velero"
-  description = "namespace name"
+  description = "Namespace name"
   type        = string
 }
 
@@ -41,7 +41,7 @@ variable "openid_connect_provider_uri" {
 variable "tags" {
   default     = {}
   description = "A mapping of tags to assign to the object."
-  type        = map
+  type        = map(any)
 }
 
 variable "repository" {
@@ -57,7 +57,7 @@ variable "values" {
 
 variable "app" {
   description = "A Release is an instance of a chart running in a Kubernetes cluster."
-  type        = map
+  type        = map(any)
   default     = {}
 }
 
