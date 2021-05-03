@@ -11,6 +11,16 @@ resource "kubernetes_namespace" "this" {
   }
 }
 
+data "kubernetes_namespace" "this" {
+  metadata {
+    name = var.name
+  }
+
+  depends_on = [
+    kubernetes_namespace.this
+  ]
+}
+
 resource "helm_release" "this" {
   count = var.app_deploy ? 1 : 0
 
