@@ -11,8 +11,8 @@ resource "kubernetes_namespace" "this" {
   }
 }
 
-// Retrieving this data will ensure that the target Kubernetes namespace exists
-// before proceeding
+# Retrieving this data will ensure that the target Kubernetes namespace exists
+# before proceeding.
 data "kubernetes_namespace" "this" {
   metadata {
     name = local.namespace_name

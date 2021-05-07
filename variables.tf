@@ -28,9 +28,9 @@ variable "name" {
 }
 
 variable "namespace_name" {
-  description = "Kubernetes namespace name. If left unset, the `name` variable will be used instead."
+  default     = null
+  description = "Kubernetes namespace name"
   type        = string
-  optional    = true
 }
 
 variable "description" {

@@ -1,5 +1,4 @@
 config {
-  deep_check = false
   ignore_module = {}
   varfile = []
 }
