@@ -178,11 +178,9 @@ No modules.
 <!-- START makefile-doc -->
 ```
 $ make help 
-make[1]: Entering directory '/home/jay/dev/altitude-sports/terraform-kubernetes-velero'
 hooks                          Commit hooks setup
 validate                       Validate with pre-commit hooks
-changelog                      Update changelog
-make[1]: Leaving directory '/home/jay/dev/altitude-sports/terraform-kubernetes-velero' 
+changelog                      Update changelog 
 ```
 <!-- END makefile-doc -->
 
