@@ -117,52 +117,72 @@ Here's the gist of using it directly from github.
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12 |
-| helm | >= 1.2 |
-| kubernetes | >= 1.11.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.0 |
+| <a name="requirement_helm"></a> [helm](#requirement\_helm) | >= 1.2 |
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | >= 1.11.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | n/a |
-| helm | >= 1.2 |
-| kubernetes | >= 1.11.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3.0 |
+| <a name="provider_helm"></a> [helm](#provider\_helm) | >= 1.2 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | >= 1.11.0 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_iam_role.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
+| [aws_iam_role_policy.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy) | resource |
+| [helm_release.this](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) | resource |
+| [kubernetes_namespace.this](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace) | resource |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
+| [aws_iam_policy_document.assume_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
+| [aws_iam_policy_document.policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
+| [kubernetes_namespace.this](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/data-sources/namespace) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| app | A Release is an instance of a chart running in a Kubernetes cluster. | `map` | `{}` | no |
-| app\_deploy | Whether or not to deploy app | `bool` | `true` | no |
-| bucket | Backup and Restore bucket. | `string` | n/a | yes |
-| cluster\_name | Cluster name. | `string` | n/a | yes |
-| description | Namespace description | `string` | `"velero-back-up-and-restore"` | no |
-| iam\_deploy | Whether or not to deploy iam role | `bool` | `true` | no |
-| iam\_role\_name | Name of the Velero IAM role | `string` | `""` | no |
-| name | Namespace name | `string` | `"velero"` | no |
-| namespace\_deploy | Whether or not to deploy namespace | `bool` | `false` | no |
-| openid\_connect\_provider\_uri | OpenID Connect Provider for EKS to enable IRSA. | `string` | n/a | yes |
-| repository | VMware Tanzu repository for Helm repos. | `string` | `"https://vmware-tanzu.github.io/helm-charts"` | no |
-| tags | A mapping of tags to assign to the object. | `map` | `{}` | no |
-| values | List of values in raw yaml to pass to helm. Values will be merged. | `list(string)` | n/a | yes |
+| <a name="input_app"></a> [app](#input\_app) | A Release is an instance of a chart running in a Kubernetes cluster. | `map(any)` | `{}` | no |
+| <a name="input_app_deploy"></a> [app\_deploy](#input\_app\_deploy) | Whether or not to deploy app | `bool` | `true` | no |
+| <a name="input_bucket"></a> [bucket](#input\_bucket) | Backup and Restore bucket. | `string` | n/a | yes |
+| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Cluster name. | `string` | n/a | yes |
+| <a name="input_description"></a> [description](#input\_description) | Namespace description | `string` | `"velero-back-up-and-restore"` | no |
+| <a name="input_iam_deploy"></a> [iam\_deploy](#input\_iam\_deploy) | whther or not to deploy iam role | `bool` | `true` | no |
+| <a name="input_iam_role_name"></a> [iam\_role\_name](#input\_iam\_role\_name) | Name of the Velero IAM role | `string` | `""` | no |
+| <a name="input_name"></a> [name](#input\_name) | Installation name | `string` | `"velero"` | no |
+| <a name="input_namespace_deploy"></a> [namespace\_deploy](#input\_namespace\_deploy) | Whether or not to deploy namespace | `bool` | `false` | no |
+| <a name="input_namespace_name"></a> [namespace\_name](#input\_namespace\_name) | Kubernetes namespace name | `string` | `null` | no |
+| <a name="input_openid_connect_provider_uri"></a> [openid\_connect\_provider\_uri](#input\_openid\_connect\_provider\_uri) | OpenID Connect Provider for EKS to enable IRSA. | `string` | n/a | yes |
+| <a name="input_repository"></a> [repository](#input\_repository) | VMware Tanzu repository for Helm repos. | `string` | `"https://vmware-tanzu.github.io/helm-charts"` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | A mapping of tags to assign to the object. | `map(any)` | `{}` | no |
+| <a name="input_values"></a> [values](#input\_values) | List of values in raw yaml to pass to helm. Values will be merged. | `list(string)` | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| namespace\_name | Namespace name |
-
+| <a name="output_namespace_name"></a> [namespace\_name](#output\_namespace\_name) | Namespace name |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Commands
 
 <!-- START makefile-doc -->
 ```
-$ make help
+$ make help 
+make[1]: Entering directory '/home/jay/dev/altitude-sports/terraform-kubernetes-velero'
 hooks                          Commit hooks setup
 validate                       Validate with pre-commit hooks
 changelog                      Update changelog
+make[1]: Leaving directory '/home/jay/dev/altitude-sports/terraform-kubernetes-velero' 
 ```
 <!-- END makefile-doc -->
 

@@ -23,7 +23,13 @@ variable "iam_deploy" {
 
 variable "name" {
   default     = "velero"
-  description = "Namespace name"
+  description = "Installation name"
+  type        = string
+}
+
+variable "namespace_name" {
+  default     = null
+  description = "Kubernetes namespace name"
   type        = string
 }
 

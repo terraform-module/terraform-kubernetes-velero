@@ -1,17 +1,29 @@
-resource kubernetes_namespace this {
+resource "kubernetes_namespace" "this" {
   count = var.namespace_deploy ? 1 : 0
 
   metadata {
-    name = var.name
+    name = local.namespace_name
 
     labels = {
-      name        = var.name
+      name        = local.namespace_name
       description = var.description
     }
   }
 }
 
-resource helm_release this {
+# Retrieving this data will ensure that the target Kubernetes namespace exists
+# before proceeding.
+data "kubernetes_namespace" "this" {
+  metadata {
+    name = local.namespace_name
+  }
+
+  depends_on = [
+    kubernetes_namespace.this,
+  ]
+}
+
+resource "helm_release" "this" {
   count = var.app_deploy ? 1 : 0
 
   name       = var.name
@@ -26,12 +38,12 @@ resource helm_release this {
   lint          = lookup(var.app, "lint", true)
   version       = lookup(var.app, "version", "2.13.2")
 
-  values = concat(var.values, list(<<EOF
-serviceAccount:
-  server:
-    create: true
-    annotations:
-      eks.amazonaws.com/role-arn: "${aws_iam_role.this.arn}"
-EOF
-  ))
+  values = concat(
+    var.values,
+    tolist([
+      templatefile("${path.module}/value_templates/serviceaccount.template.yaml", {
+        EKS_ROLE_ARN = aws_iam_role.this[0].arn
+      }),
+    ]),
+  )
 }
