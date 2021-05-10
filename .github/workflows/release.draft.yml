@@ -1,8 +1,6 @@
 name: release.draft
 
 on:
-  push:
-    branches: [$default-branch]
   workflow_dispatch:
     inputs:
       prerelease:
@@ -13,6 +11,10 @@ on:
         description: Publish release
         required: false
         default: false
+      bump:
+        description: 'Bumping (#major, #minor or #patch)'
+        required: false
+        default: patch
 
 jobs:
   draft-a-release:
@@ -20,8 +22,6 @@ jobs:
     steps:
 
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: '0'
 
       - name: check next version
         uses: anothrNick/github-tag-action@1.35.0
@@ -29,7 +29,7 @@ jobs:
         env:
           DRY_RUN: true
           WITH_V: true
-          DEFAULT_BUMP: patch
+          DEFAULT_BUMP: ${{ github.event.inputs.bump }}
 
       - name: release-draft
         uses: release-drafter/release-drafter@v5.15.0
