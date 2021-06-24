@@ -29,7 +29,7 @@ jobs:
         env:
           DRY_RUN: true
           WITH_V: true
-          DEFAULT_BUMP: ${{ github.event.inputs.bump }}
+          DEFAULT_BUMP: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.bump || 'patch' }}
 
       - name: release-draft
         uses: release-drafter/release-drafter@v5.15.0
