@@ -36,14 +36,10 @@ resource "helm_release" "this" {
   recreate_pods = lookup(var.app, "recreate_pods", true)
   max_history   = lookup(var.app, "max_history", 1)
   lint          = lookup(var.app, "lint", true)
-  version       = lookup(var.app, "version", "2.13.2")
+  version       = lookup(var.app, "version", "2.29.4")
 
   values = concat(
     var.values,
-    tolist([
-      templatefile("${path.module}/value_templates/serviceaccount.template.yaml", {
-        EKS_ROLE_ARN = aws_iam_role.this[0].arn
-      }),
-    ]),
+    local.additional_value,
   )
 }

@@ -126,9 +126,9 @@ Here's the gist of using it directly from github.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3.0 |
-| <a name="provider_helm"></a> [helm](#provider\_helm) | >= 1.2 |
-| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | >= 1.11.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.38.0 |
+| <a name="provider_helm"></a> [helm](#provider\_helm) | 2.1.2 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.1.0 |
 
 ## Modules
 
