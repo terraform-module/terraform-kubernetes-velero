@@ -1,5 +1,9 @@
 # Velero installation on AWS EKS Kubernetes
 
+Deploy velero to Kubernetes.
+
+---
+
 ![](https://github.com/terraform-module/terraform-kubernetes-velero/workflows/release/badge.svg)
 ![](https://github.com/terraform-module/terraform-kubernetes-velero/workflows/commit-check/badge.svg)
 ![](https://github.com/terraform-module/terraform-kubernetes-velero/workflows/labeler/badge.svg)
@@ -17,6 +21,8 @@
 ![](https://img.shields.io/github/last-commit/terraform-module/terraform-kubernetes-velero)
 [![Maintenance](https://img.shields.io/badge/Maintenu%3F-oui-green.svg)](https://GitHub.com/terraform-module/terraform-kubernetes-velero/graphs/commit-activity)
 [![GitHub forks](https://img.shields.io/github/forks/terraform-module/terraform-kubernetes-velero.svg?style=social&label=Fork)](https://github.com/terraform-module/terraform-kubernetes-velero)
+
+---
 
 ## References
 
@@ -117,7 +123,7 @@ Here's the gist of using it directly from github.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4 |
 | <a name="requirement_helm"></a> [helm](#requirement\_helm) | >= 1.2 |
 | <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | >= 2 |
@@ -177,10 +183,10 @@ No modules.
 
 <!-- START makefile-doc -->
 ```
-$ make help 
+$ make help
 hooks                          Commit hooks setup
 validate                       Validate with pre-commit hooks
-changelog                      Update changelog 
+changelog                      Update changelog
 ```
 <!-- END makefile-doc -->
 
