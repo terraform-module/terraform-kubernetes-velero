@@ -112,9 +112,16 @@ Here's the gist of using it directly from github.
     }
 ```
 
-## Assumptions
+## Examples
+
+See `examples` directory for working examples to reference
+
+- [Examples TFM Dir](examples)
 
 ## Available features
+
+- [X] Deploy `Velero`
+- [X] Hook IAM role with `k8s Service Account` and `AWS WebIdentity`
 
 ## Module Variables
 
