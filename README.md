@@ -132,16 +132,16 @@ See `examples` directory for working examples to reference
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4 |
-| <a name="requirement_helm"></a> [helm](#requirement\_helm) | >= 1.2 |
+| <a name="requirement_helm"></a> [helm](#requirement\_helm) | ~> 2 |
 | <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | ~> 2 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.38.0 |
-| <a name="provider_helm"></a> [helm](#provider\_helm) | 2.1.2 |
-| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.1.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.22.0 |
+| <a name="provider_helm"></a> [helm](#provider\_helm) | 2.6.0 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.12.1 |
 
 ## Modules
 
