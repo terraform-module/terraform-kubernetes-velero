@@ -170,7 +170,7 @@ No modules.
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Cluster name. | `string` | n/a | yes |
 | <a name="input_description"></a> [description](#input\_description) | Namespace description | `string` | `"velero-back-up-and-restore"` | no |
 | <a name="input_iam_deploy"></a> [iam\_deploy](#input\_iam\_deploy) | whther or not to deploy iam role | `bool` | `true` | no |
-| <a name="input_iam_role_name"></a> [iam\_role\_name](#input\_iam\_role\_name) | Name of the Velero IAM role | `string` | `""` | no |
+| <a name="input_iam_role_name"></a> [iam\_role\_name](#input\_iam\_role\_name) | Name of the Velero IAM role. If not specified a new iam role will be created  | `string` | `""` | no |
 | <a name="input_name"></a> [name](#input\_name) | Installation name | `string` | `"velero"` | no |
 | <a name="input_namespace_deploy"></a> [namespace\_deploy](#input\_namespace\_deploy) | Whether or not to deploy namespace | `bool` | `false` | no |
 | <a name="input_namespace_name"></a> [namespace\_name](#input\_namespace\_name) | Kubernetes namespace name | `string` | `null` | no |
