@@ -68,15 +68,15 @@ Here's the gist of using it directly from github.
     # https://github.com/vmware-tanzu/helm-charts/tree/master/charts/velero
 
     image:
-    repository: velero/velero
-    tag: v1.4.2
+        repository: velero/velero
+        tag: v1.4.2
 
     initContainers:
-    - name: velero-plugin-for-aws
+      - name: velero-plugin-for-aws
         image: velero/velero-plugin-for-aws:v1.1.0
         imagePullPolicy: IfNotPresent
         volumeMounts:
-        - mountPath: /target
+          - mountPath: /target
             name: plugins
 
     # SecurityContext to use for the Velero deployment. Optional.
@@ -86,23 +86,23 @@ Here's the gist of using it directly from github.
         fsGroup: 1337
 
     configuration:
-    provider: aws
-
-    backupStorageLocation:
-        name: default
         provider: aws
-        bucket: backup-s3
-        prefix: "velero/dev/my-cluster"
-        config:
-        region: eu-west-1
 
-    volumeSnapshotLocation:
-        name: default
-        provider: aws
-        # Additional provider-specific configuration. See link above
-        # for details of required/optional fields for your provider.
-        config:
-        region: eu-west-1
+        backupStorageLocation:
+            name: default
+            provider: aws
+            bucket: backup-s3
+            prefix: "velero/dev/my-cluster"
+            config:
+                region: eu-west-1
+
+        volumeSnapshotLocation:
+            name: default
+            provider: aws
+            # Additional provider-specific configuration. See link above
+            # for details of required/optional fields for your provider.
+            config:
+                region: eu-west-1
     EOF
     ]
     vars  = {
