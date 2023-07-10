@@ -20,7 +20,7 @@ module "velero" {
 
   count = 1
 
-  namespace_deploy            = "velero"
+  namespace_deploy            = true
   app_deploy                  = true
   cluster_name                = "my-cluster-name"
   openid_connect_provider_uri = local.openid_connect_provider_uri
