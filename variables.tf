@@ -77,3 +77,11 @@ variable "iam_role_name" {
   type        = string
   default     = ""
 }
+
+# Support to govcloud accounts
+# https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/using-govcloud-arns.html
+variable "arn_preffix" {
+  description = "Bucket arn preffix, usefull when You use govcloud accounts, for example: arn:aws-us-gov<*>"
+  type        = string
+  default     = "arn:aws"
+}
