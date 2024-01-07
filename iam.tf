@@ -8,7 +8,7 @@ data "aws_iam_policy_document" "assume_role" {
 
     principals {
       type        = "Federated"
-      identifiers = ["arn:aws:iam::${local.account_id}:oidc-provider/${var.openid_connect_provider_uri}"]
+      identifiers = ["${var.arn_preffix}:iam::${local.account_id}:oidc-provider/${var.openid_connect_provider_uri}"]
     }
 
     condition {
@@ -44,7 +44,7 @@ data "aws_iam_policy_document" "policy" {
       "s3:ListBucket",
     ]
 
-    resources = ["arn:aws:s3:::${var.bucket}", ]
+    resources = ["${var.arn_preffix}:s3:::${var.bucket}", ]
   }
 
   statement {
@@ -57,7 +57,7 @@ data "aws_iam_policy_document" "policy" {
       "s3:AbortMultipartUpload",
       "s3:ListMultipartUploadParts"
     ]
-    resources = ["arn:aws:s3:::${var.bucket}/velero/*", ]
+    resources = ["${var.arn_preffix}:s3:::${var.bucket}/velero/*", ]
   }
 }
 
