@@ -76,6 +76,6 @@ resource "aws_iam_role" "this" {
 resource "aws_iam_role_policy" "this" {
   count  = var.iam_deploy ? 1 : 0
   name   = format("%s-%s", var.cluster_name, var.name)
-  role   = element(aws_iam_role.this.*.id, 0)
+  role   = aws_iam_role.this[0].id
   policy = data.aws_iam_policy_document.policy.json
 }
